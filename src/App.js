@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import FilterList from './FilterList.js';
-import {Provider, connect} from 'react-redux';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import FilterList from "./FilterList.js";
+import { Provider, connect } from "react-redux";
 
 class App extends Component {
   render() {
