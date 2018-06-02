@@ -1,33 +1,31 @@
-import React, {PropTypes} from 'react';
-import {createStore} from 'redux';
+import React, { PropTypes } from "react";
+import { createStore } from "redux";
 
-const List = ({ items, filterBy }) => {  
+const List = ({ items, filterBy }) => {
   return (
     <ul>
-      {
-        items
-          .filter(item => item.indexOf(filterBy) > -1)
-          .map((item, i) => <li key={i}>{item}</li>)
-      } 
+      {items
+        .filter(item => item.indexOf(filterBy) > -1)
+        .map((item, i) => <li key={i}>{item}</li>)}
     </ul>
-  )
+  );
+};
+
+function setFilter(by) {
+  return { type: "SET_FILTER", by: by };
 }
 
-function setFilter(by) {  
-  return { type: 'SET_FILTER', by:by };
-}
-
-const initialState = {  
-  filterBy: ''
-}
-function reducer(state = initialState, action) {  
+const initialState = {
+  filterBy: ""
+};
+function reducer(state = initialState, action) {
   switch (action.type) {
-    case 'SET_FILTER':
+    case "SET_FILTER":
       return Object.assign({}, state, {
         filterBy: action.by
-      })
+      });
     default:
-      return state
+      return state;
   }
 }
 
@@ -38,7 +36,7 @@ export default class FilterList extends React.Component {
     super();
     // our default state, filter by nothing
     this.state = store.getState();
-    this.unsubscribe = store.subscribe( () => {
+    this.unsubscribe = store.subscribe(() => {
       this.setState(store.getState());
     });
   }
@@ -54,16 +52,15 @@ export default class FilterList extends React.Component {
 
   render() {
     const { filterBy } = this.state;
-    const frameworks = ['React', 'Angular', 'Vue', 'Ember'];
+    const frameworks = ["React", "Angular", "Vue", "Ember"];
     // simple input box and our List component
     return (
       <div>
-        <input type="text" onChange={(ev) => this.updateFilter(ev) }/>
+        <input type="text" onChange={ev => this.updateFilter(ev)} />
         <List items={frameworks} filterBy={filterBy} />
       </div>
-    )
+    );
   }
 }
 
-FilterList.propTypes = {
-};
+FilterList.propTypes = {};
