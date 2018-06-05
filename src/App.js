@@ -4,9 +4,12 @@ import "./App.css";
 import FilterList from "./FilterList.js";
 import { store } from "redux";
 import { Provider, connect } from "react-redux";
+import { createStore } from "react";
 
 class App extends Component {
+
   render() {
+    const store = createStore(reducer);
     return (
       <Provider>
         <div className="App">
