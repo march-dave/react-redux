@@ -60,7 +60,22 @@ class FilterList extends Component {
 }
 
 // very important!
+FilterList2 = connect(mapStateToProps, mapDispatchToProps)(FilterList2);
+
+class FilterList2 extends Component {
+  render() {
+    const { filterBy, updateFilter } = this.props;
+    return (
+      <div>
+        <List items={FRAMEWORKS} filterBy={filterBy} />
+      </div>
+    )
+  }
+}
+
+// very important!
 FilterList = connect(mapStateToProps, mapDispatchToProps)(FilterList);
+
 
 const List = ({ items, filterBy }) => {
   return (
