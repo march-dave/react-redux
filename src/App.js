@@ -60,7 +60,7 @@ class FilterList extends Component {
 }
 
 // very important!
-FilterList2 = connect(mapStateToProps, mapDispatchToProps)(FilterList2);
+FilterList = connect(mapStateToProps, mapDispatchToProps)(FilterList);
 
 class FilterList2 extends Component {
   render() {
@@ -74,7 +74,7 @@ class FilterList2 extends Component {
 }
 
 // very important!
-FilterList = connect(mapStateToProps, mapDispatchToProps)(FilterList);
+FilterList2 = connect(mapStateToProps, mapDispatchToProps)(FilterList2);
 
 
 const List = ({ items, filterBy }) => {
